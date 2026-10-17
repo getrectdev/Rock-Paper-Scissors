@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="javascript.js"></script>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <img src="Rock Paper Scissors.png" style="width: 25%; height: auto;">
+    <div id="roundBoard"></div>
+    <div id="Scoreboard">
+        <div id="playerScoreboard" class="score"></div>
+        <div id="computerScoreboard" class="score"></div>
+    </div>
+    <div id="inputButtons">
+        <button id="rock" class="input">Rock</button>
+        <button id="paper" class="input">Paper</button>
+        <button id="scissors" class="input">Scissors</button>
+    </div>
 </body>
+<script src="javascript.js"></script>
 </html>

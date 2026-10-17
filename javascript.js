@@ -1,5 +1,29 @@
 let computerScore = 0;
 let playerScore = 0;
+let round = 1;
+
+let playerScoreboard = document.getElementById("playerScoreboard");
+playerScoreboard.textContent = `Player: ${playerScore}`;
+
+let computerScoreboard = document.getElementById("computerScoreboard");
+computerScoreboard.textContent = `Computer: ${computerScore}`;
+
+let roundBoard = document.getElementById("roundBoard");
+roundBoard.textContent = `Round ${round}`;
+
+let buttons = document.getElementById("inputButtons");
+
+
+buttons.addEventListener('click', (event) => {
+    let target = event.target;
+    playRound(target.id);
+});
+
+function refreshBoard() {
+    roundBoard.textContent = `Round ${round}`;
+    computerScoreboard.textContent = `Computer: ${computerScore}`;
+    playerScoreboard.textContent = `Player: ${playerScore}`;
+}
 
 function getComputerChoice() {
     const randInt = Math.floor((Math.random()*3));
@@ -8,10 +32,6 @@ function getComputerChoice() {
     else return "scissors";
 }
 
-function getPlayerChoice() {
-    let playerInput = prompt("Enter rock, paper, or scissors: ");
-    return playerInput;
-}
 
 function decideWinner(computerChoice, playerChoice) {
 	if (computerChoice == playerChoice) return "tie";
@@ -35,24 +55,20 @@ function scoreRound(winner) {
     if (winner == "computer") computerScore++;
 }
 
-function playRound(i) {
-    console.log(`Round ${i}`);
+function playRound(playerChoice) {
     let computerChoice = getComputerChoice();
     console.log(`Computer throws ${computerChoice}`);
-    let playerChoice = getPlayerChoice();
     console.log(`Player throws ${playerChoice}`);
     let winner = decideWinner(computerChoice, playerChoice);
     console.log(winner);
     scoreRound(winner);
     console.log(`Player: ${playerScore} Computer: ${computerScore}`)
+    scoreGame();
+    round++;
+    refreshBoard();
 }
 
-function playGame() {
-	for (let i=0; i<5; i++) {
-			playRound(i);
-	}
-    if (playerScore>computerScore) console.log("You win!");
-    else console.log("You lose!");
+function scoreGame() {
+    if (playerScore==5) alert("You win!");
+    else if (computerScore==5) alert("You lose!");
 }
-
-playGame();

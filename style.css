@@ -1,0 +1,30 @@
+#Scoreboard {
+    display: flex;
+    /* border: 1px solid red; */
+}
+
+#inputButtons {
+    display: flex;
+    /* border: 1px solid green; */
+}
+
+#roundBoard {
+    display: flex;
+    margin: 4px;
+}
+
+body {
+    background-color: aqua;
+}
+
+.score {
+    display: flex;
+    /* border: 1px solid blue; */
+    margin: 4px;
+}
+
+.input {
+    display: flex;
+    margin: 4px;
+}
+
